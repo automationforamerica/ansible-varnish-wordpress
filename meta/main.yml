@@ -1,12 +1,13 @@
 ---
 galaxy_info:
   author: "Jason Berlinsky"
-  license:
+  description: Install Varnish for Wordpress
+  license: Unlicense
   min_ansible_version: 1.4
   platforms:
     - name: Ubuntu
-    versions:
-      - trusty
+      versions:
+        - trusty
   categories:
-    web
+    - web
 dependencies: []
