@@ -1,6 +1,6 @@
 # default backend definition.  Set this to point to your content server.
 backend default {
-    .host = "{{ apache_backend_ip }}";
+    .host = "{{ apache_backend_address | default('127.0.0.1') }}";
     .port = "{{ reverse_proxy_port | default('80') }}";
     .connect_timeout = 120s;
     .first_byte_timeout = 120s;
