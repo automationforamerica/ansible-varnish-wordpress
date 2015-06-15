@@ -1,0 +1,12 @@
+---
+galaxy_info:
+  author: "Jason Berlinsky"
+  license:
+  min_ansible_version: 1.4
+  platforms:
+    - name: Ubuntu
+    versions:
+      - trusty
+  categories:
+    web
+dependencies: []
