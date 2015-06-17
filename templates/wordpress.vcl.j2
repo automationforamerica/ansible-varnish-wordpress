@@ -2,9 +2,9 @@
 backend default {
     .host = "{{ apache_backend_address | default('127.0.0.1') }}";
     .port = "{{ reverse_proxy_port | default('80') }}";
-    .connect_timeout = 120s;
-    .first_byte_timeout = 120s;
-    .between_bytes_timeout = 120s;
+    .connect_timeout = 10s;
+    .first_byte_timeout = 1s;
+    .between_bytes_timeout = 2s;
 }
 
 sub vcl_recv {
@@ -41,7 +41,7 @@ sub vcl_recv {
     req.request != "OPTIONS" &&
     req.request != "DELETE" &&
     req.request != "PURGE") {
-      /* Non-RFC2616 or CONNECT which is weird. */
+      /*[> Non-RFC2616 or CONNECT which is weird. <]*/
       return (pipe);
     }
 
