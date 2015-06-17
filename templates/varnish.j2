@@ -47,7 +47,11 @@ DAEMON_OPTS="-a :80 \
              -T localhost:6082 \
              -f /etc/varnish/wordpress.vcl \
              -S /etc/varnish/secret \
-             -s malloc,256m"
+             -s malloc,1G \
+             -p http_req_size=65536 \
+             -p http_resp_size=65536 \
+             -p thread_pool_min=10 \
+             -p thread_pool_max=2000"
 
 ## Alternative 3, Advanced configuration
 #
